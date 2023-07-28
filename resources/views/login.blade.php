@@ -40,11 +40,13 @@
                     <label for="password" class="form-label">Password</label>
                     <input type="password" name="password" id="password" class="form-control">
                 </div>
-                <div>
+                <div class="text-center">
                     <button type="submit" class="btn btn-primary form-control">Login</button>
+                <div class="text-center"> 
+                        <a href="#" >Sign Up</a>
+                </div>
             </form>
         </div>
-    
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
