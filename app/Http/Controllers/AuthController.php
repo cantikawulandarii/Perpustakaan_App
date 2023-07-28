@@ -7,7 +7,7 @@ use TypeError;
 
 class AuthController extends Controller
 {
-    public function login(Request $request)
+    public function login()
         {
             return view('login');
         }
@@ -15,5 +15,11 @@ class AuthController extends Controller
         public function register()
         {
             return view('register');
+        }
+
+        public function authentication(Request $request)
+        {
+            dd('ini halaman authenticating');
+
         }
 }
