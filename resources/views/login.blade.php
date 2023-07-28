@@ -40,10 +40,10 @@
                     <label for="password" class="form-label">Password</label>
                     <input type="password" name="password" id="password" class="form-control">
                 </div>
-                <div class="text-center">
+                <div>
                     <button type="submit" class="btn btn-primary form-control">Login</button>
                 <div class="text-center"> 
-                        <a href="register" >Sign Up</a>
+                        <a href="register">Sign Up</a>
                 </div>
             </form>
         </div>
