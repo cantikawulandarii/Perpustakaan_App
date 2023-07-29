@@ -29,12 +29,16 @@
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
                                             <div class="form-group mt-2">
-                                                <input type="text" name="phone" class="form-style" placeholder="Phone" id="Phone" autocomplete="off">
+                                                <input type="text" name="phone" class="form-style" placeholder="Phone" id="phone" autocomplete="off">
+                                                <i class="input-icon uil uil-at"></i>
+                                            </div>
+                                            <div class="form-group mt-2">
+                                                <input type="text" name="address" class="form-style" placeholder="Address" id="address" autocomplete="off">
                                                 <i class="input-icon uil uil-at"></i>
                                             </div>
                                             <a href="submit" class="btn mt-4">submit</a>
+                                            <a href="login" class="btn mt-4">Login</a>
                                           </div>
-                                          <a href="login" class="btn mt-4">Login</a>
                                       </div>
                                   </div>
                               </div>
