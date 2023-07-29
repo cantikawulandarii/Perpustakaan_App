@@ -28,15 +28,6 @@ class AuthController extends Controller
         ]);
         //cek login valid atau tidak 
         if (Auth::attempt($credentials)){
-            // cek kalau status user aktif
-            if(Auth::user()->status != 'active'){
-                Auth::logout();
-                $request->session()->invalidate();
-                $request->session()->regenerateToken();
-                Session::flash('status', 'failed');
-                Session::flash('message', 'Maaf Akun Anda Belum Aktif, Kontak Admin Untuk Lebih Lanjut');
-                return redirect('/login');
-            }
             // $request->session()->regenerate(
             if(Auth::user()->role_id == 1){
                 return redirect('dashboard');
