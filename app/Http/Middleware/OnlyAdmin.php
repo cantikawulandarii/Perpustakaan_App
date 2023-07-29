@@ -1,18 +1,29 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Middleware;
 
+use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class OnlyAdmin
 {
-    public function profile()
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
+     * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
+     */
+    public function handle(Request $request, Closure $next)
     {
-        return view('profile');
-    }
+        //Logika jika yang login bukan admin
+        if(Auth::user()->role_id != 1)
+        {
+            return redirect('books');
+        }
 
-    public function index()
-    {
-        return view('user');
+        //Logika jika yuang login admin
+        return $next($request);
     }
 }
