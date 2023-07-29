@@ -53,8 +53,8 @@
                     <input type="text" name="phone" id="phone" class="form-control" >
                 </div> 
                 <div>
-                    <label for="address" class="form-label">Address</label>
-                    <textarea name="address" id="address" name="address" class="form-control" rows="4" required></textarea>
+                    <label for="alamat" class="form-label">Address</label>
+                    <textarea name="alamat" id="alamat" name="alamat" class="form-control" rows="4" required></textarea>
                 </div>
                 <div>
                     <button type="submit" class="btn btn-primary form-control">Register</button>
