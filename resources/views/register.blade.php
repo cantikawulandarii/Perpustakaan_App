@@ -4,50 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Rental Buku | Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link href="{{ asset('css/stylelogin.css') }}" rel="stylesheet">
+    <title>Rental Buku | Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
+
+<style>
+    .main{  
+        height: 100vh;
+    }
+    .register-box{
+        width: 500px;
+        border: solid 1px;
+        padding: 30px;
+    }
+    form div{
+        margin-bottom: 15px;
+    }
+</style>
 <body>
-    <div class="section">
-        <div class="container">
-            <div class="row full-height justify-content-center">
-                <div class="col-12 text-center align-self-center py-5">
-                    <div class="section pb-5 pt-5 pt-sm-2 text-center">
-                        <div class="card-3d-wrap mx-auto">
-                            <div class="card-3d-wrapper">
-                                <div class="card-front">
-                                    <div class="center-wrap">
-                                        <div class="section text-center">
-                                            <h4 class="mb-4 pb-3">Register</h4>
-                                            <div class="form-group">
-                                                <input type="text" name="username" class="form-style" placeholder="User Name" id="username" autocomplete="off">
-                                                <i class="input-icon uil uil-at"></i>
-                                            </div>	
-                                            <div class="form-group mt-2">
-                                                <input type="password" name="password" class="form-style" placeholder="Your Password" id="password" autocomplete="off">
-                                                <i class="input-icon uil uil-lock-alt"></i>
-                                            </div>
-                                            <div class="form-group mt-2">
-                                                <input type="text" name="phone" class="form-style" placeholder="Phone" id="phone" autocomplete="off">
-                                                <i class="input-icon uil uil-at"></i>
-                                            </div>
-                                            <div class="form-group mt-2">
-                                                <input type="text" name="address" class="form-style" placeholder="Address" id="address" autocomplete="off">
-                                                <i class="input-icon uil uil-at"></i>
-                                            </div>
-                                            <a href="submit" class="btn mt-4">submit</a>
-                                            <a href="login" class="btn mt-4">Login</a>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+    <div class="main d-flex flex-column justify-content-center align-items-center">
+        @if ($errors->any())
+            <div class="alert alert-danger" style="width: 500px">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        @if (session('status'))
+            <div class="alert alert-success" style="width:500px">
+                {{ session('message') }}
+            </div>
+        @endif
+        <div class="register-box">
+            <form action="" method="post">
+                @csrf
+                <div>
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" name="username" id="username" class="form-control" >
+                </div> 
+                <div>
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" required>
+                </div>
+                <div>
+                    <label for="phone" class="form-label">phone</label>
+                    <input type="text" name="phone" id="phone" class="form-control" >
+                </div> 
+                <div>
+                    <label for="address" class="form-label">Address</label>
+                    <textarea name="address" id="address" name="address" class="form-control" rows="4" required></textarea>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary form-control">Register</button>
+                </div>
+                <div class="text-center">
+                    Already have account? <a href="login">Sign In</a>
+                </div>
+            </form>
         </div>
     </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>
