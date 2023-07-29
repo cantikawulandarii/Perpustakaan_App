@@ -66,7 +66,7 @@ class AuthController extends Controller
             'username' => 'required|unique:users|max:255',
             'password' => 'required|max:25|min:5',
             'phone'    => 'max:25',
-            'address'  => 'required',
+            'alamat'  => 'required',
         ]);
         //Registration process + encrypting password with hash
         $request['password'] = Hash::make($request->password);
