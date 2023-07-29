@@ -21,5 +21,8 @@ Route::get('/', function () {
 })->middleware('auth');
 
 Route::get('login', [AuthController::class, 'login'])->name('login');
-route::post('login', [AuthController::class, 'authenticating']);
+Route::post('login', [AuthController::class, 'authenticating']);
 Route::get('register', [AuthController::class, 'register']);
+
+Route::post('dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'only_admin']);
+Route::get('profile', [UserController::class, 'profile'])->middleware('auth');
