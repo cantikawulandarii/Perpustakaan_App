@@ -41,7 +41,7 @@
             <form action="" method="post">
                 @csrf
                 <div>
-                    <label for="username" class="form-label">Username</label>
+                    <label for="username" class="form-label">Usernam</label>
                     <input type="text" name="username" id="username" class="form-control" >
                 </div> 
                 <div>
