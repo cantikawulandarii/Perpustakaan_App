@@ -28,6 +28,10 @@
                                                 <input type="password" name="password" class="form-style" placeholder="Your Password" id="password" autocomplete="off">
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
+                                            <div class="form-group mt-2">
+                                                <input type="text" name="phone" class="form-style" placeholder="Phone" id="Phone" autocomplete="off">
+                                                <i class="input-icon uil uil-at"></i>
+                                            </div>
                                             <a href="submit" class="btn mt-4">submit</a>
                                           </div>
                                           <a href="login" class="btn mt-4">Login</a>
