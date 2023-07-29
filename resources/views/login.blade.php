@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-
+    <link href="{{ asset('css/stylehome.css') }}" rel="stylesheet">
 </head>
 
 <style>
     .main {
         height: 100vh;
-        box-sizing: border-box;
+        <body> box-sizing: border-box;
     }
 
     .login-box {
@@ -27,32 +27,61 @@
 </style>
 
 <body>
-
-    <div class="main d-flex justify-content-center align-items-center">
-        @if (session('status'))
-        <div class= "alert alert-danger">
-            {{ session("message")}}
+    <!-- partial:index.partial.html -->
+    <div class="section">
+            <div class="container">
+                <div class="row full-height justify-content-center">
+                    <div class="col-12 text-center align-self-center py-5">
+                        <div class="section pb-5 pt-5 pt-sm-2 text-center">
+                            <h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
+                              <input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
+                              <label for="reg-log"></label>
+                            <div class="card-3d-wrap mx-auto">
+                                <div class="card-3d-wrapper">
+                                    <div class="card-front">
+                                        <div class="center-wrap">
+                                            <div class="section text-center">
+                                                <h4 class="mb-4 pb-3">Log In</h4>
+                                                <div class="form-group">
+                                                    <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
+                                                    <i class="input-icon uil uil-at"></i>
+                                                </div>	
+                                                <div class="form-group mt-2">
+                                                    <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off">
+                                                    <i class="input-icon uil uil-lock-alt"></i>
+                                                </div>
+                                                <a href="#" class="btn mt-4">submit</a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                    <div class="card-back">
+                                        <div class="center-wrap">
+                                            <div class="section text-center">
+                                                <h4 class="mb-4 pb-3">Sign Up</h4>
+                                                <div class="form-group">
+                                                    <input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off">
+                                                    <i class="input-icon uil uil-user"></i>
+                                                </div>	
+                                                <div class="form-group mt-2">
+                                                    <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
+                                                    <i class="input-icon uil uil-at"></i>
+                                                </div>	
+                                                <div class="form-group mt-2">
+                                                    <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off">
+                                                    <i class="input-icon uil uil-lock-alt"></i>
+                                                </div>
+                                                <a href="#" class="btn mt-4">submit</a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+            </div>
         </div>
-        @endif
-        <div class="login-box">
-            <form action="" method="post">
-                @csrf
-                <div>
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" name="username" id="username" class="form-control" required>
-                </div>
-                <div>
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" name="password" id="password" class="form-control">
-                </div>
-                <div>
-                    <button type="submit" class="btn btn-primary form-control">Login</button>
-                <div class="text-center"> 
-                        <a href="register">Sign Up</a>
-                </div>
-            </form>
-        </div>
-    </div>
+    <!-- partial -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-</body>
+    </body>
 </html>
