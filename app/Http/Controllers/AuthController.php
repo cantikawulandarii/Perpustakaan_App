@@ -28,6 +28,15 @@ class AuthController extends Controller
         ]);
         //cek login valid atau tidak 
         if (Auth::attempt($credentials)){
+            // cek kalau status user aktif
+            if(Auth::user()->status != 'active'){
+                Auth::logout();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+                Session::flash('status', 'failed');
+                Session::flash('message', 'Maaf Akun Anda Belum Aktif, Kontak Admin Untuk Lebih Lanjut');
+                return redirect('/login');
+            }
             // $request->session()->regenerate(
             if(Auth::user()->role_id == 1){
                 return redirect('dashboard');
@@ -57,7 +66,7 @@ class AuthController extends Controller
             'username' => 'required|unique:users|max:255',
             'password' => 'required|max:25|min:5',
             'phone'    => 'max:25',
-            'alamat'  => 'required',
+            'address'  => 'required',
         ]);
         //Registration process + encrypting password with hash
         $request['password'] = Hash::make($request->password);
