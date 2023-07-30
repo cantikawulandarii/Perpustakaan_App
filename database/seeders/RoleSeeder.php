@@ -11,8 +11,10 @@ class RoleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
+     *
+     * @return void
      */
-    public function run(): void
+    public function run()
     {
         Schema::disableForeignKeyConstraints();
         Role::truncate();
@@ -22,8 +24,10 @@ class RoleSeeder extends Seeder
             'admin', 'client'
         ];
 
-        foreach($data as $value){
-            Role::insert(['name' => $value]);
+        foreach ($data as $value) {
+            Role::insert([
+                'name' => $value
+            ]);
         }
     }
 }
