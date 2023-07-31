@@ -30,7 +30,26 @@
                 {{ session('message') }}
             </div>            
         @endif
-        <button type="submit" class="btn btn-primary form-control">Login</button>
+        <div class="login-box">
+            <form action="" method="POST">
+                @csrf
+                <div>
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" name="username" id="username" class="form-control" required>
+                </div>
+                <div>
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" required>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary form-control">Login</button>
+                </div>
+                <div class="text-center"> 
+                    Don't have account? <a href="register">Sign Up</a>
+                </div>
+            </form>
+        </div>
+    </div>
 
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
