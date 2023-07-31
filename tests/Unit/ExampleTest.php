@@ -1,22 +1,18 @@
 <?php
 
-namespace Tests;
+namespace Tests\Unit;
 
-use Illuminate\Contracts\Console\Kernel;
+use PHPUnit\Framework\TestCase;
 
-trait CreatesApplication
+class ExampleTest extends TestCase
 {
     /**
-     * Creates the application.
+     * A basic test example.
      *
-     * @return \Illuminate\Foundation\Application
+     * @return void
      */
-    public function createApplication()
+    public function test_that_true_is_true()
     {
-        $app = require __DIR__.'/../bootstrap/app.php';
-
-        $app->make(Kernel::class)->bootstrap();
-
-        return $app;
+        $this->assertTrue(true);
     }
 }
