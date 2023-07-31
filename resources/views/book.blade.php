@@ -1,62 +1,57 @@
 @extends('layouts.mainlayout')
 
-@section('title', 'Add Book')
+@section('title', 'Books')
 
 @section('content')
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-    <h1>Add New Book</h1>
-    
-    <div class="mt-5 w-50">
+    <h1>Book List</h1>
 
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
+    <div class="my-5 d-flex justify-content-end">
+        <a href="book-deleted" class="btn btn-info me-5">Lihat Data Terhapus</a>
+        <a href="book-add" class="btn btn-primary">Add Data</a>
+    </div>
+
+    <div class="mt-5">
+        @if(session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
             </div>
         @endif
-
-        <form action="book-add" method="post" enctype="multipart/form-data">
-            @csrf
-            <div class="mb-3">
-                <label for="code" class="form-label">Code</label>
-                <input type="text" name="book_code" id="book_code" class="form-control" placeholder="Book Code" value="{{ old('book_code') }}">
-            </div>  
-
-            <div class="mb-3">
-                <label for="title" class="form-label">Title</label>
-                <input type="text" name="title" id="title" class="form-control" placeholder="Title Name" value="{{ old('title') }}">
-            </div>
-            
-            <div class="mb-3">
-                <label for="image" class="form-label">Image</label>
-                <input type="file" name="image" id="cover" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="category">Category</label>
-                <select name="categories[]" id="category" class="form-control select-multiple" multiple>
-                    @foreach ($categories as $item)
-                        <option value="{{ $item->id }}">{{ $item->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-
-            <div class="mt-3">
-                <button class="btn btn-success" type="submit">Save</button>
-            </div>
-        </form>        
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.select-multiple').select2();
-        });
-    </script>
-    
 
+    <div class="my-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Code</th>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($books as $item)
+                    <tr>
+                        <td> {{ $loop->iteration }}</td>
+                        <td> {{ $item->book_code }}</td>
+                        <td> {{ $item->title }}</td>
+                        <td>
+                            @foreach ($item->categories as $category)
+                            <li>
+                                {{ $category->name }} <br>
+                            </li>
+                            @endforeach
+                        </td>
+                        <td> {{ $item->status }}</td>
+                        <td>
+                            <a href="/book-edit/{{ $item->slug }}">Edit</a>
+                            <a href="/book-delete/{{ $item->slug }}">Delete</a>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 @endsection
