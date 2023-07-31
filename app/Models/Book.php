@@ -21,7 +21,7 @@ class Book extends Model
         'cover',
         'slug',
     ];
-
+    
     public function sluggable(): array
     {
         return [
