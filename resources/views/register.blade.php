@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Perpustakaan | Register</title>
+    <title>Rental Buku | Register</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 
@@ -41,7 +41,7 @@
             <form action="" method="post">
                 @csrf
                 <div>
-                    <label for="username" class="form-label">Usernam</label>
+                    <label for="username" class="form-label">Username</label>
                     <input type="text" name="username" id="username" class="form-control" >
                 </div> 
                 <div>
@@ -53,8 +53,8 @@
                     <input type="text" name="phone" id="phone" class="form-control" >
                 </div> 
                 <div>
-                    <label for="alamat" class="form-label">Address</label>
-                    <textarea name="alamat" id="alamat" name="alamat" class="form-control" rows="4" required></textarea>
+                    <label for="address" class="form-label">Address</label>
+                    <textarea name="address" id="address" name="address" class="form-control" rows="4" required></textarea>
                 </div>
                 <div>
                     <button type="submit" class="btn btn-primary form-control">Register</button>
