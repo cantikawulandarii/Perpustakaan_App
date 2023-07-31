@@ -14,7 +14,7 @@ class Book extends Model
     use HasFactory;
     use Sluggable;
     use SoftDeletes;
-
+ 
     protected $fillable = [
         'book_code',
         'title',
